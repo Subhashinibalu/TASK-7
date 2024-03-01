@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const req = new XMLHttpRequest();
+
+req.open("GET", "https://restcountries.com/v3.1/all");
+req.send();
+req.onload = function(){
+  const data = (JSON.parse(this.response));
+  data.forEach((element)=>{
+                console.log("name:",element.name.common,"capital:",...element.capital,"flag:",element.flag);
+    })
+}
+
+    </script>
+</body>
+</html>
